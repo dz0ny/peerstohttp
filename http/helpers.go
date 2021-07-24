@@ -10,7 +10,7 @@ import (
 	"github.com/anacrolix/torrent"
 	"github.com/anacrolix/torrent/metainfo"
 
-	"github.com/WinPooh32/peerstohttp/app"
+	"plex-torrent/app"
 )
 
 var errFileNotFound = errors.New("file not found")

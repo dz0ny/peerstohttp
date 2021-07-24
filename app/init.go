@@ -15,7 +15,7 @@ import (
 	"go.etcd.io/bbolt"
 	"golang.org/x/time/rate"
 
-	"github.com/WinPooh32/peerstohttp/settings"
+	"plex-torrent/settings"
 )
 
 // https://gitlab.com/axet/libtorrent/-/blob/master/libtorrent.go
@@ -75,7 +75,7 @@ func p2p(service *settings.Settings, cwd string) (*torrent.Client, error) {
 	}
 
 	// Enable seeding.
-	cfg.Seed = true
+	cfg.Seed = false
 
 	// Header obfuscation.
 	cfg.HeaderObfuscationPolicy = torrent.HeaderObfuscationPolicy{
@@ -86,8 +86,6 @@ func p2p(service *settings.Settings, cwd string) (*torrent.Client, error) {
 	if *service.ForceEncryption {
 		cfg.CryptoProvides = mse.CryptoMethodRC4
 	}
-
-	cfg.DefaultRequestStrategy = torrent.RequestStrategyFastest()
 
 	// Torrent debug.
 	cfg.Debug = false

@@ -11,8 +11,8 @@ import (
 	"github.com/go-chi/render"
 	"github.com/rs/zerolog/log"
 
-	"github.com/WinPooh32/peerstohttp/http/host"
-	"github.com/WinPooh32/peerstohttp/playlist"
+	"plex-torrent/http/host"
+	"plex-torrent/playlist"
 )
 
 func M3U(w http.ResponseWriter, r *http.Request, list *playlist.PlayList) {

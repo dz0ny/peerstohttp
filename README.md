@@ -1,6 +1,6 @@
 # peerstohttp
 [![CircleCI](https://circleci.com/gh/WinPooh32/peerstohttp.svg?style=svg)](https://circleci.com/gh/WinPooh32/peerstohttp) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FWinPooh32%2Fpeerstohttp.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FWinPooh32%2Fpeerstohttp?ref=badge_shield)
-[![Go Report Card](https://goreportcard.com/badge/github.com/WinPooh32/peerstohttp)](https://goreportcard.com/report/github.com/WinPooh32/peerstohttp)
+[![Go Report Card](https://goreportcard.com/badge/plex-torrent)](https://goreportcard.com/report/plex-torrent)
 
 Simple torrent proxy to http stream controlled over REST-like api
 
@@ -88,7 +88,7 @@ utp dependency requires C compiler, then install it:
 
 Download:
 ```
-$ go get -v -u github.com/WinPooh32/peerstohttp
+$ go get -v -u plex-torrent
 ```
 
 Build in vendor mode:
@@ -98,12 +98,12 @@ $ go build -mod=vendor -o peerstohttp
 
 Install:
 ```
-$ go install -i github.com/WinPooh32/peerstohttp/cmd
+$ go install -i plex-torrent/cmd
 ```
 
 Run:
 ```
-$ go run github.com/WinPooh32/peerstohttp/cmd -port=8484 -dir="/path/to/download"
+$ go run plex-torrent/cmd -port=8484 -dir="/path/to/download"
 ```
 
 * Usually, $GOPATH is "~/go";

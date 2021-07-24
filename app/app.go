@@ -12,7 +12,7 @@ import (
 	"github.com/rs/zerolog/log"
 	"go.etcd.io/bbolt"
 
-	"github.com/WinPooh32/peerstohttp/settings"
+	"plex-torrent/settings"
 
 	"github.com/anacrolix/torrent/metainfo"
 )
@@ -25,7 +25,9 @@ const (
 var trackers = [][]string{
 	{"udp://opentor.org:2710", "https://bt.t-ru.org/ann?magnet", "http://bt.t-ru.org/ann?magnet"},
 	{"udp://tracker.coppersurfer.tk:6969/announce"},
-	{"http://retracker.local/announce"},
+	{"udp://tracker.leechers-paradise.org:6969/announce"},
+	{"http://tracker.trackerfix.com:80/announce"},
+	{"udp://tracker.opentrackr.org:1337/announce"},
 }
 
 // TODO add torrent management(disk cache size control, start/stop and etc.).

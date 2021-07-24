@@ -12,9 +12,9 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 
-	application "github.com/WinPooh32/peerstohttp/app"
-	peershttp "github.com/WinPooh32/peerstohttp/http"
-	"github.com/WinPooh32/peerstohttp/settings"
+	application "plex-torrent/app"
+	peershttp "plex-torrent/http"
+	"plex-torrent/settings"
 
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/cors"
@@ -84,6 +84,7 @@ func main() {
 	router.Use(newCors([]string{"*"}).Handler)
 
 	peershttp.RouteApp(router, app)
+	peershttp.RoutePlex(router, app)
 
 	// Enable service profiling
 	if *settings.Service.Profile {

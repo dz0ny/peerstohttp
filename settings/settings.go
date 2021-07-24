@@ -27,14 +27,14 @@ func (s *Settings) parse() {
 	*s = Settings{
 		// HTTP
 		Host: flag.String("host", "0.0.0.0", "listening server ip"),
-		Port: flag.Int("port", 80, "listening port"),
+		Port: flag.Int("port", 8092, "listening port"),
 
 		// Torrent
 		TorrPort:        flag.Int("port-torr", 0, "listening port for torrent"),
 		ProxyHTTP:       flag.String("http-proxy", "", "http proxy for trackers"),
-		DownloadDir:     flag.String("dir", "", "where files will be downloaded to"),
-		DownloadRate:    flag.Int("down-rate", 0, "download speed rate in kib/s"),
-		UploadRate:      flag.Int("up-rate", 0, "upload speed rate in kib/s"),
+		DownloadDir:     flag.String("dir", "./cache", "where files will be downloaded to"),
+		DownloadRate:    flag.Int("down-rate", 4000, "download speed rate in kib/s"),
+		UploadRate:      flag.Int("up-rate", 100, "upload speed rate in kib/s"),
 		MaxConnections:  flag.Int("max-connections", 50, "max connections per torrent"),
 		NoDHT:           flag.Bool("no-dht", false, "disable dht"),
 		NoTCP:           flag.Bool("no-tcp", false, "disable tcp"),

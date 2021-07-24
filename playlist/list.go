@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	name_reader "github.com/WinPooh32/peerstohttp/playlist/name"
+	name_reader "plex-torrent/playlist/name"
 
 	"github.com/anacrolix/torrent"
 )

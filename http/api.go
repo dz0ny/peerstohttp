@@ -10,10 +10,10 @@ import (
 	"github.com/go-chi/render"
 	"github.com/rs/zerolog/log"
 
-	"github.com/WinPooh32/peerstohttp/app"
-	"github.com/WinPooh32/peerstohttp/http/host"
-	list_render "github.com/WinPooh32/peerstohttp/http/render"
-	"github.com/WinPooh32/peerstohttp/playlist"
+	"plex-torrent/app"
+	"plex-torrent/http/host"
+	list_render "plex-torrent/http/render"
+	"plex-torrent/playlist"
 )
 
 const (
