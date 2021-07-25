@@ -1,8 +1,6 @@
-# peerstohttp
-[![CircleCI](https://circleci.com/gh/WinPooh32/peerstohttp.svg?style=svg)](https://circleci.com/gh/WinPooh32/peerstohttp) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FWinPooh32%2Fpeerstohttp.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FWinPooh32%2Fpeerstohttp?ref=badge_shield)
-[![Go Report Card](https://goreportcard.com/badge/plex-torrent)](https://goreportcard.com/report/plex-torrent)
+# Plextor
 
-Simple torrent proxy to http stream controlled over REST-like api
+Simple torrent proxy to Plex http API.
 
 Built top on [anacrolix/torrent](https://github.com/anacrolix/torrent) lib.
 
@@ -49,65 +47,8 @@ Or open m3u playlist in VLC video player:
 $ vlc http://localhost/list/m3u/mp4/-/hash/08ada5a7a6183aae1e09d831df6748d566095a10
 ```
 
-Generate **m3u** files from list of magnets using wget and bash script:
-<details>
-  <summary>makelist.sh</summary>
 
-```bash
-#!/bin/bash
-
-magnets="magnets.txt"
-playlist_dir="playlists" 
-
-host="localhost"
-port="8484"
-
-exts="mp3,mp4,m4a,m4,flac"
-exclude_tags="live,interlude,demo,orchestral,orch,remix,mix,acoustic,instr,instrumental,synthesis,bonus,heavy"
-
-rm -f $playlist_dir/*m3u*
-
-while read line; do
-     wget --content-disposition --directory-prefix=$playlist_dir --tries=3 "http://$host:$port/list/m3u/$exts/$exclude_tags/magnet/$line"
-done < $magnets
+Build:
 ```
-
-</details>
-<br>
-
-## Docker
-Run container with exposed 8484 http port:
+$ make build
 ```
-$ docker run --volume downloads:/downloads -it -p 8484:80 winpooh32/peerstohttp:latest -dir=/downloads
-```
-
-## Build steps
-utp dependency requires C compiler, then install it:  
-* Windows: download and install https://jmeubank.github.io/tdm-gcc/download/
-* Ubuntu linux: `apt install build-essential`
-
-Download:
-```
-$ go get -v -u plex-torrent
-```
-
-Build in vendor mode:
-```
-$ go build -mod=vendor -o peerstohttp
-```
-
-Install:
-```
-$ go install -i plex-torrent/cmd
-```
-
-Run:
-```
-$ go run plex-torrent/cmd -port=8484 -dir="/path/to/download"
-```
-
-* Usually, $GOPATH is "~/go";
-* Default `dir` value is system tmp folder, for listing all possible options run `$ ./peerstohttp -help`.
-
-## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FWinPooh32%2Fpeerstohttp.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FWinPooh32%2Fpeerstohttp?ref=badge_large)
